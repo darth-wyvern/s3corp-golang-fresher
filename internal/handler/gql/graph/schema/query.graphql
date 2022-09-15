@@ -1,0 +1,3 @@
+type Query {
+    GetProducts(input: GetProductsInput!): GetProductsOutput!
+}

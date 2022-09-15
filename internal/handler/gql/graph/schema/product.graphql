@@ -1,0 +1,66 @@
+scalar Time
+scalar Int64
+
+type Product {
+  id: Int!
+  title: String!
+  description: String!
+  price: Float!
+  quantity: Int!
+  isActive: Boolean!
+  userID: Int!
+  createdAt: Time!
+  updatedAt: Time!
+}
+
+input CreateProductInput {
+  title: String!
+  description: String
+  price: Float!
+  quantity: Int!
+  isActive: ActiveType!
+  userID: Int!
+}
+
+input PriceRange {
+  minPrice: Float!
+  maxPrice: Float!
+}
+
+input OrderBy {
+  title: String
+  price: String
+  quantity: String
+  createdAt: String
+}
+
+input PaginationInput {
+  page: Int
+  limit: Int
+}
+
+input GetProductsInput {
+  id: Int
+  title: String
+  priceRange: PriceRange
+  isActive: Boolean
+  userID: Int
+  orderBy: OrderBy
+  pagination: PaginationInput
+}
+
+type Pagination {
+  currentPage: Int
+  limit: Int
+  totalCount: Int64
+}
+
+type GetProductsOutput {
+  products: [Product]
+  pagination: Pagination
+}
+
+enum ActiveType {
+    YES
+    NO
+}

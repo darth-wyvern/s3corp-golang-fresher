@@ -1,0 +1,16 @@
+# Refer https://github.com/volatiletech/sqlboiler#configuration
+schema: "public"
+pkgname: "model"
+output: "internal/model"
+wipe: true
+no-tests: true
+no-hooks: true
+
+psql:
+  dbname: "s3corp-golang-fresher"
+  host: "localhost"
+  port: "5432"
+  user: "s3corp-golang-fresher"
+  pass: ''
+  sslmode: "disable"
+  blacklist: [ "schema_migrations" ]
